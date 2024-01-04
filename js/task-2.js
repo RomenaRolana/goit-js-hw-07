@@ -27,3 +27,14 @@ const images = [
     alt: 'Zebras on Zebra',
   },
 ];
+// шаблонні рядки
+const makeGalleryMarkup = image => {
+  return `<li class="gallery-item">
+            <img src="${image.url}" alt="${image.alt}" width="240" height="160">
+          </li>`;
+};
+// Об'єднання всіх елементів у один рядок 
+const galleryMarkup = images.map(makeGalleryMarkup).join('');
+// Додавання в DOM
+const galleryRef = document.querySelector('.gallery');
+galleryRef.insertAdjacentHTML('beforeend', galleryMarkup);
